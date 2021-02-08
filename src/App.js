@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import IdeaForm from './IdeaForm'
+import { uniqueId } from 'lodash'
+import IdeasContainer from './IdeasContainer'
 
 class App extends Component {
   constructor() {
@@ -11,7 +13,8 @@ class App extends Component {
   }
 
   addIdea = idea => {
-    this.setState({ ideas: [...this.state.ideas, idea] })
+    const newIdea = {...idea, id: uniqueId()}
+    this.setState({ ideas: [...this.state.ideas, newIdea] })
   }
 
   render() {
@@ -21,6 +24,7 @@ class App extends Component {
           <h2>Idea Keeper</h2>
         </div>
         <IdeaForm addIdea={this.addIdea} />
+        <IdeasContainer ideas={this.state.ideas} />
       </div>
     );
   }
