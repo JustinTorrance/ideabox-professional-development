@@ -1,9 +1,16 @@
 import React from 'react'
+import Card from './Card'
 
-const IdeasContainer = ({ ideas }) => {
- console.log('ideas', ideas)
+const IdeasContainer = ({ ideas, removeIdea }) => {
+
+ const ideaCards = ideas.map(idea => (
+  <Card {...idea} key={idea.id} removeIdea={removeIdea} />
+ ))
+
  return(
-   <p>container</p>
+   <section>
+     {ideaCards}
+   </section>
  )
 }
 
