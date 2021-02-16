@@ -4,10 +4,10 @@ import Card from './Card'
 const IdeasContainer = ({ ideas, removeIdea, archiveIdea }) => {
 
   const activeCards = ideas.filter(idea => (!idea.archived))
-    .map(idea => (<Card {...idea} key={idea.id} removeIdea={removeIdea} archiveIdea={archiveIdea}/>))
+    .map(idea => (<Card {...idea} key={idea.id} removeIdea={removeIdea} archiveIdea={archiveIdea} status={idea.archived} />))
 
   const archivedCards = ideas.filter(idea => (idea.archived))
-    .map(idea => (<Card {...idea} key={idea.id} removeIdea={removeIdea} archiveIdea={archiveIdea}/>))
+    .map(idea => (<Card {...idea} key={idea.id} removeIdea={removeIdea} archiveIdea={archiveIdea} status={idea.archived} />))
 
  return(
     <main>
